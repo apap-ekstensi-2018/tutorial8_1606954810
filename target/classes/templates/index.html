@@ -1,0 +1,12 @@
+<!doctype HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_header(content)">
+<title>Index</title>
+<link th:fragment="script" rel="stylesheet" href="/bootstrap-4.0.0-dist/css/bootstrap.min.css" />
+</head>
+<body>
+	<h2>Welcome</h2>
+	<a href="/login">Login</a>
+	<a th:if="${#httpServletRequest.isUserInRole('ADMIN')}" href="/student/viewall">View All Student</a><br/>
+</body>
+</html>
