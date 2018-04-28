@@ -6,7 +6,18 @@
 </head>
 <body>
 	<h2>Welcome</h2>
-	<a href="/login">Login</a>
-	<a th:if="${#httpServletRequest.isUserInRole('ADMIN')}" href="/student/viewall">View All Student</a><br/>
+	<div>
+		<a href="/login">Login</a>
+	</div>
+	<div>
+		<a th:if="${#httpServletRequest.isUserInRole('ADMIN')}" href="/student/viewall">View All Student</a><br/>
+	</div>
+	<div th:if="${#httpServletRequest.isUserInRole('USER')} or ${#httpServletRequest.isUserInRole('ADMIN')}">
+		<h2>View by NPM</h2>
+		<form action="/student/view/" method="get">
+			<input type="text" name="npm"/>
+			<button type="submit">Cari</button>
+		</form>
+	</div>
 </body>
 </html>
